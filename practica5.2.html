@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table style="border-collapse: collapse;"></table>
+
+    <script src="">
+        function dibujarTabla(columnas=4,filas=10,color="black"){
+            document.write(`<table style='border: 2px solid ${color}; border-collapse: collapse; width: 100%'>`)
+            //Este for va creando cada una de las filas de la tabla
+            for( let i=0 ; i<filas ; i++ ){
+                document.write(`<tr>`)
+                //Este for va creando las celdas dentro de las filas
+                for( let j=0 ; j<columnas ; j++ ){
+                    document.write(`<td style='border: 1px solid ${color};'>&nbsp;</td>`)
+                }
+                document.write("</tr>")
+            }
+            document.write("</table>")
+        }
+
+        dibujarTabla(9,9,"blue")
+    </script>
+</body>
+</html>

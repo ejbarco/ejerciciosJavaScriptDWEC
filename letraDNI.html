@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let letras = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E']
+        //variable string
+        let numStr = prompt("Escriba el numero del DNI: ")
+
+        //variable numerica
+        let num = parseInt(numStr)
+
+        //divido el numero introducido entre 23
+        let resto = num % 23
+
+        numStr += letras[resto]
+
+        alert('Tu NIF es: '+numStr)
+
+
+
+
+
+    </script>
+</body>
+</html>

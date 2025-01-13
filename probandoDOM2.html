@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="checkbox" name="verdura" id="verdura" onchange="cambiarColor('verdura')">Verduras
+    <input type="checkbox" name="carne" id="carne" onchange="cambiarColor('carne')">Carne
+    <input type="checkbox" name="hidrato" id="hidrato" onchange="cambiarColor('hidrato')">Hidratos
+    
+    <ul>
+        <li class="verdura">Cebolla</li>
+        <li class="verdura">Ajo</li>
+        <li class="carne">Pollo</li>
+        <li class="verdura">Lechuga</li>
+        <li class="carne">Ternera</li>
+        <li class="hidrato">Pan</li>
+        <li class="hidrato">Arroz</li>
+        <li class="carne">Cerdo</li>
+        <li class="verdura">Tomate</li>
+        <li class="hidrato">Lentejas</li>
+    </ul>
+
+    <script>
+        function cambiarColor(tipoAlimento){
+            let check = document.getElementById(tipoAlimento)
+            if ( check.checked ) {
+                if (tipoAlimento == 'verdura') {
+                    var color = "green"
+                } else if(tipoAlimento == 'carne') {
+                    color = "red"
+                } else if(tipoAlimento == 'hidrato'){
+                    color = "brown"
+                }
+            } else {
+                color = "white"
+            }
+            
+            let alimentos = document.getElementsByClassName(tipoAlimento)
+            for ( element of alimentos ){
+                element.style.backgroundColor = color                
+            }
+        }
+
+        let lis = document.querySelectorAll("input")
+        for (let e of lis){
+            console.log(e.getAttribute("name"))
+        }
+
+        lis[0].setAttribute("value","true")
+        console.log(lis[0].getAttribute("value"))
+
+        lis[0].removeAttribute("value")
+        console.log(lis[0].getAttribute("value"))
+
+        lis[0].toggleAttribute("value")
+        console.log(lis[0].getAttribute("value"))
+
+        lis[0].toggleAttribute("value")
+        console.log(lis[0].getAttribute("value"))
+
+    </script>
+
+</body>
+</html>

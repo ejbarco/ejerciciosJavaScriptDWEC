@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let secreto = 1+ parseInt(Math.random()*100);
+        let numero, intentos=0, continuar=true;
+        do {
+            numero = parseInt(prompt("Introduzca un numero: "));
+            intentos++;
+            if ( !isNaN(numero) ){
+                if( numero > secreto ) {
+                    continuar=confirm("El numero buscado es MENOR");
+                } else if( numero < secreto ) {
+                    continuar=confirm("El numero buscado es MAYOR");
+                } else {
+                    continuar=confirm("ENHORABUENA HAS ACERTADO EL NUMERO!!\nNumero de Intentos: "+intentos);
+                }
+            } else {
+                continuar=confirm("ERROR: ESCRIBA UN NUMERO, POR FAVOR");
+            }
+            
+        } while( numero != secreto && continuar );
+    </script>
+</body>
+</html>

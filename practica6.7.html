@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let letras = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E']
+        //variable string
+        let numStr = prompt("Escriba un NIF (8 cifras y 1 letra): ")
+
+        //variable numerica
+        let num = parseInt(numStr)
+
+        //divido el numero introducido entre 23
+        let resto = num % 23
+
+        //Compruebo que la letra del NIF es la correcta según el algoritmo
+        if( numStr[numStr.length-1].toUpperCase() == letras[resto]){
+            alert("El NIF "+numStr+" es CORRECTO")
+        } else {
+            alert("NIF ERRONEO")
+        }
+    </script>
+</body>
+</html>

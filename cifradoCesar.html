@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let alfabeto = "abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+        let array1 = alfabeto.split("");
+        let mensaje = prompt("Escriba su mensaje: ");
+        //Vamos a atacar el jueves
+        let clave = parseInt(prompt("Escriba la clave de codificación: "));
+        let mensajeCifrado = "";
+
+        for ( let letra of mensaje ){
+            var posicion = array1.indexOf(letra);
+            posicion += clave;
+            if ( posicion > array1.length-1 ){
+                //Si la posición más la clave es superior al tamaño del array, entonces hago la división entera y cojo el resto, que me va a devolver un numero entre 0 y la longitud del array -1
+                posicion = posicion % array1.length;
+            }
+            mensajeCifrado = mensajeCifrado + array1[posicion];
+        }
+
+        document.write("Mensaje sin cifrar: <br>"+mensaje+"<br>Mensaje Cifrado:<br>"+mensajeCifrado)
+
+    </script>
+</body>
+</html>

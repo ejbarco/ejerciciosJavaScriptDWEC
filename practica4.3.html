@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let combinaciones = [];
+        let numeroCombinaciones = 50;
+
+        function sacarCombinacion(){
+            let num, combinacion=[];
+            //Bucle que va a sacar 6 números al azar
+            for(let i=1; i<7 ; i++){
+                num = 1 + parseInt(Math.random()*49);
+                if( combinacion.includes(num) == false )
+                    combinacion.push(num);
+                else i--;
+            }
+            return combinacion;
+        }
+
+        for ( let j=0 ; j<numeroCombinaciones ; j++ ){
+            combinaciones.push(sacarCombinacion());
+            document.write("Combinación "+Number(j+1)+" : "+combinaciones[j]+"<br>");
+        }
+    </script>
+</body>
+</html>

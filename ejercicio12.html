@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var contra="5454",a,intentos=5,correcta=false;
+        do {
+            a = prompt("Intentos "+intentos+"\nEscriba una contraseña: ");
+            if(a==contra){
+                alert("CONTRASEÑA CORRECTA");
+                correcta = true;
+            } else {
+                alert("ERROR");
+                intentos--;
+            }
+        } while( correcta == false && intentos != 0 );
+    </script>
+</body>
+</html>

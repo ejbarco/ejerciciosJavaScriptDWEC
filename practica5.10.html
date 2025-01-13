@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [35,54,65,21,4,25,12,78,69,33,1,87,97]
+        function filtro(a,f){
+            if(f[0] == ">"){
+                return a.filter( x => x>50 )
+            }
+
+        }
+
+        let condicion = prompt("Que condicion quieres? ")
+        // la condición podrá ser por ejemplo: "<8" o ">12" o "==78", etc
+        let arrayFiltrado = filtro(array,condicion)
+        alert(array)
+        alert(arrayFiltrado)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo"></p>
+    <script>
+        let i=1;
+        //let p1 = document.getElementById("parrafo"); 
+        let texto="";
+        let num = Number(prompt("Indique un numero de asteriscos: "));
+        if(!isNaN(num)){
+            while(i<=num){
+                for(let j=0;j<i;j++){
+                    texto = texto+"* "
+                    document.write("* ");
+                    //p1.innerHTML = p1.innerHTML+"* "
+                }
+                texto = texto+"\n";
+                document.write("<br>");
+                //p1.innerHTML = p1.innerHTML+"<br>"
+                i++;
+            }           
+            alert(texto);
+        }
+    </script>
+</body>
+</html>

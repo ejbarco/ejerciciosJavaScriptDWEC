@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="asteriscos()">Lineas con asteriscos</button>
+    <script>
+        var array1=[];
+
+        function asteriscos(){
+            //Inicializo el array aleatoriamente
+            for( let i=0 ; i<20 ; i++ ){
+                array1[i] = parseInt(1 + Math.random()*50)            
+            }
+
+            //Recorro el array y voy pintando las lineas
+            for(let num of array1){
+                document.write(`${num} : `);
+                for( let j=0 ; j<num ; j++ ){
+                    document.write("*");
+                }
+                document.write("<br>")
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let palabrasUnicas = new Set()
+        let array = []
+        let texto=" "
+        while( texto != "" && texto != null  ){
+            texto = prompt("Escriba palabras: ")
+            if ( texto != null || texto != "" ){
+                array = texto.split(" ")
+                for( let palabra of array ){
+                    palabrasUnicas.add(palabra)
+                }
+            }
+        }
+        
+        let array2 = [...palabrasUnicas]
+        array2.sort((a,b)=>(-a.localeCompare(b,"es")))
+        
+        array2.forEach((pal) => document.write(`<p>${pal}</p>`))
+
+    </script>
+</body>
+</html>

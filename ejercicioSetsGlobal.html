@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function menu(){
+            return parseInt(prompt("MENU PARA LOS SETS \n 1- Mostrar el Conjunto \n 2- Añadir elemento al conjunto \n 3- Tamaño del conjunto \n 4- Eliminar elemento del conjunto \n 5- Borrar el Conjunto \n 6- Buscar Valor en el Conjunto \n 7- Convertir el Conjunto en un Array"))
+        }
+
+        function mostrarConjunto(){
+            var texto="";
+            for ( var valor of conjunto1 ){
+                texto+=valor+"\n";
+            }
+            alert(texto);
+        }
+
+        function aniadirElemento(){
+            texto = prompt("¿Qué quieres añadir?");
+            conjunto1.add(texto);
+            mostrarConjunto();
+        }
+
+        function eliminarElemento(){
+            mostrarConjunto();
+            texto = prompt("¿Que elemento quiere eliminar?");
+            conjunto1.delete(texto);
+            mostrarConjunto();
+        }
+
+        function borrarConjunto(){
+            texto = confirm("¿Estas seguro de que quieres eliminar todo?");
+            if(texto){
+                conjunto1.clear();
+            } else {
+                alert("Operación Cancelada. No se ha borrado nada");                
+            }
+            mostrarConjunto();
+        }
+
+        function buscarValor(){
+            texto = prompt("Valor a buscar: ");
+            if ( conjunto1.has(texto) ) alert(texto+": ENCONTRADO")
+            else alert("NO ENCONTRADO")
+        }
+
+        function convertirArray(){
+            let array = [...conjunto1];
+            alert("Array Creado:\n"+array);
+        }
+
+        const conjunto1 = new Set(["Albacete","Ciudad Real","Cuenca"]);
+
+        while(true){
+            let op = menu();
+            switch( op ){
+                case 1:
+                    mostrarConjunto();                
+                    break;
+                case 2:
+                    aniadirElemento();
+                    break;
+                case 3:
+                    alert("El Conjunto tiene "+conjunto1.size+" elementos");
+                    break;
+                case 4:
+                    eliminarElemento();
+                    break;
+                case 5:
+                    borrarConjunto();
+                    break;
+                case 6:
+                    buscarValor();
+                    break;
+                case 7:
+                    convertirArray();
+                    break;
+                default:
+                    alert("OPCION INCORRECTA!!")
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+let claves = provincias.keys()
+
+let valores = provincias.values()
+
+
+Vamos a atacar el jueves
+Zdorv d dwdfdu hñ mxhzhv

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>   
+</head>
+<body>
+    
+    <script>
+        //obtengo la anchura y altura de la ventana
+        let altura = parseInt(window.innerHeight);
+        let anchura = parseInt(window.innerWidth);
+
+        //bucle para ir creando cuadros de colores aleatorios y posicion aleatoria
+        for (let i=1 ; i<2000 ; i++){
+            //calculo los colores aleatorios y las posiciones
+            let rojo=parseInt(Math.random()*256);
+            let azul=parseInt(Math.random()*256);
+            let verde=parseInt(Math.random()*256);
+            let x=parseInt(Math.random()*anchura);
+            let y=parseInt(Math.random()*altura);
+
+            //creo un div cuadrado de 50px de lado, que será un cuadro, en esas posiciones generadas aleatoriamente
+            document.write(`<div style="position: absolute; left: ${x}px; top: ${y}px; width:50px ; height:50px ; background-color:rgb(${rojo},${verde},${azul});"></div>`);
+        }
+
+    </script>
+</body>
+</html>

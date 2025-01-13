@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>        
+
+        function Punto(n1,n2){
+            this.x = 0
+            this.y = 0
+            this.expr = /^-?\d+(\.|,)?\d*$/
+            if( this.expr.test(n1) ){
+                this.x = n1
+            }
+            if( this.expr.test(n2) ){
+                this.y = n2
+            }
+            this.Cambiar = (i,j)=>{                                
+                if( this.expr.test(i) ){
+                    this.x = i
+                }
+                if( this.expr.test(j) ){
+                    this.y = j
+                }
+            }
+
+            this.Copia = () => {
+                return new Punto(this.x, this.y)
+            }
+
+            this.Iguales = (a) => {
+                if ( a instanceof Punto ){
+                    if ( this.x == a.x && this.y == a.y ){
+                        alert("Los 2 puntos son iguales")
+                    } else {
+                        alert("son diferentes")
+                    }
+                } else {
+                    alert("Lo que has pasado no es un objeto de clase Punto")
+                }
+            }
+
+            this.Suma = function( a ) {
+                if ( a instanceof Punto ){
+                    return new Punto(a.x+this.x , a.y+this.y)
+                } else {
+                    return new Punto( this.x , this.y )
+                }
+            }
+
+            this.Distancia = ( a ) => {
+                if ( a instanceof Punto ){
+                    //vamos a calcular la distancia entre los puntos
+                    let distanciax = Math.abs(this.x - a.x)
+                    let distanciay = Math.abs(this.y - a.y)
+                    // distanciax y distanciay son los catetos de un triangulo, y ahora voy a calcular la hipotenusa, con el teorema de Pitagoras
+                    let suma = Math.pow(distanciax,2)+Math.pow(distanciay,2)
+                    let hipotenusa = Math.sqrt(suma)
+                    return hipotenusa
+                }
+            }
+
+            this.toString = () => {
+                return "( "+this.x+" , "+this.y+" )"
+            }
+        }
+
+        let punto1 = new Punto(-5,2)
+        alert("Las coordenadas del punto1 son "+punto1.toString())        
+
+        let punto2 = punto1.Copia()
+        alert("Las coordenadas del punto2 son "+punto2.x+" , "+punto2.y)
+
+        punto1.Cambiar(6,-3)
+        alert("Las coordenadas del punto1 son "+punto1.x+" , "+punto1.y)
+
+        //punto1.Iguales(punto2)
+
+        //punto2.Iguales("hola")
+
+        //let punto3 = punto1.Suma(punto2)
+        //alert("Las coordenadas del punto3 son "+punto3.x+" , "+punto3.y)
+
+        alert("La distancia entre el punto1 y el punto2 es: "+punto1.Distancia(punto2))
+
+        
+
+    </script>
+</body>
+</html>

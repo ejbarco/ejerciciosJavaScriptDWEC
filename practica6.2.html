@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Array.prototype.media = function() {
+            let suma = this.reduce((acu,valor)=>(acu+valor))
+            return suma/this.length
+        }
+
+        let array1 = [7,3,4,4,7,4,7,3,4,5,3,3,4,3,4]
+
+        alert("La media de los numeros es "+array1.media())
+
+    </script>
+</body>
+</html>

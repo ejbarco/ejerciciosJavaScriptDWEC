@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1- Añadir atributos al objeto
+        2- Mostrar solo atributos
+        3- Mostrar solo metodos
+        4- Mostrar todo
+        5- Borrar atributos o metodos
+        6- Salir
+        */
+
+        let op = ""
+        let arrayCoches = new Array() 
+
+        let objeto2 = {
+            mostrarMarca : ()=> alert(this.Marca),
+            mostrarMatricula : ()=> alert(this.Matricula),
+            Marca : "Daewoo",
+            Matricula : "2145RED"
+        }
+
+        let objeto1 = Object()
+        objeto1.mostrarMatricula = function(){
+            alert(this.Matricula)
+        }
+        objeto1.mostrarMarca = ()=> alert(this.Marca)
+
+        function mostrarMenu(){
+            let opcion = prompt("1- Añadir atributos al objeto\n2- Mostrar solo atributos\n3- Mostrar solo metodos\n4- Mostrar todo\n5- Borrar atributos o metodos\n6- Array de Objetos\n7- Salir")
+            return opcion
+        }
+
+        function Coche(){
+            this.Marca = prompt("Escriba la Marca:")
+            this.Modelo = prompt("Escriba el Modelo:")
+        }
+
+        Coche.prototype.mostrarMarca = () =>  alert(this.Marca)
+
+        Coche.prototype.Matricula = ""
+
+        Coche.prototype.modificarMatricula = function(){
+            this.Matricula = prompt("Escriba la matricula")
+        }
+        
+        while( (op = mostrarMenu()) != 7){
+            switch ( op ){
+                case "1":
+                    let clave = prompt("Nombre del atributo nuevo: ")
+                    let valor = prompt("Valor del atributo nuevo: ")
+                    objeto1[clave]=valor
+                    break
+                case "2":
+                    var texto = ""
+                    for( let prop in objeto1 ){
+                        if(typeof objeto1[prop] != "function" ){
+                            texto += prop+" = "+objeto1[prop]+"\n"
+                        }
+                    }
+                    alert(texto)
+                    break
+                case "3":
+                    texto = ""
+                    for( let prop in objeto1 ){
+                        if(typeof objeto1[prop] == "function" ){
+                            texto += prop+"\n"
+                        }
+                    }
+                    alert(texto)
+                    break
+                case "4":
+                    texto = ""
+                    for( let prop in objeto1 ){                      
+                        texto += prop+" = "+objeto1[prop]+"\n"                      
+                    }
+                    alert(texto)
+                    break
+                case "5":
+                    texto = prompt("Que atributo quieres eliminar?")
+                    delete objeto1[texto]
+                    break
+                case "6":
+                    arrayCoches.push(new Coche())
+                    //arrayCoches.push({ Marca:prompt("Escriba la marca del coche:"), Modelo:prompt("Escriba el modelo del coche:") })
+                    alert("Datos nuevo coche:\n Marca="+arrayCoches[arrayCoches.length-1].Marca+"\n Modelo="+arrayCoches[arrayCoches.length-1].Modelo)
+                    break
+                default:
+                    alert("OPCION INCORRECTA")              
+            }
+        }
+    </script>
+</body>
+</html>

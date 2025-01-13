@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td style="background-color: purple;">
+
+            </td>
+        </tr>
+    </table>
+    <script>
+        let filas = parseInt(prompt("Indica filas: "))
+        let columnas = parseInt(prompt("Indica columnas: "))
+        let minas = parseInt(prompt("Indica minas (menos de "+filas*columnas/5+"): "))
+
+        //Necesito un array de 2 dimensiones, lo creo con las siguientes 4 líneas de código
+        let tablero = new Array(filas)              
+        for ( let i=0 ; i<filas ; i++ ){
+            tablero[i] = new Array(columnas)
+        }
+
+        //let tablero = Array.from({length:filas},()=>Array(columnas).fill(undefined))
+
+        function colocarMinas( t ){
+            for(let i=0 ; i<minas ; i++ ){
+                let x = 1+parseInt(Math.random()*(filas-2))
+                let y = 1+parseInt(Math.random()*(columnas-2))
+                if( t[x][y] == undefined ) 
+                    t[x][y] = "M"
+                else
+                    i--  //para que el bucle se repita otra iteración más                
+            }
+        }
+
+        function rellenarAlrededor(a,b,t){
+            //Esta función rellena las celdas alrededor de una MINA
+            for (let fil=a-1 ; fil <= a+1 ; fil++ ){
+                for (let col=b-1 ; col <=b+1 ; col++){
+                    if( t[fil][col] != "M" ){
+                        if( t[fil][col] == undefined ){
+                            //si esa celda esta vacia, la inicializo a 1
+                            t[fil][col] = 1
+                        } else {
+                            //en este caso la celda ya contiene un valor numerico, que tengo que incrementar
+                            t[fil][col] += 1 
+                        }
+                    }
+                }
+            }
+        }
+
+        function ponerNumeros( t ){
+            for( let i=0 ; i<filas ; i++ ){
+                for( let j=0; j<columnas ; j++){
+                    //miro la casilla, y sino es una bomba, continuo a la siguiente, pero si es una bomba, accedo a las casillas del alrededor y sumo uno a su valor, a no ser que alguna casilla de alrededor tuviera una bomba, en cuyo caso la dejo intacta
+                    if( t[i][j] == "M" ) {
+                        //Incrementar en 1 el número que hay en las celdas de alrededor. Si esas celdas estuvieran undefined, las inicializamos a 1, pero si esa celda contuviera una MINA no haríamos nada
+                        rellenarAlrededor(i,j,t)
+                    }
+                }
+            }
+        }
+
+        function dibujarTablero(t){
+            document.write("<table>")
+            for( let i=0 ; i<filas ; i++ ){
+                document.write("<tr>")
+                for( let j=0; j<columnas ; j++){
+                    let texto = t[i][j]
+                    let color = "white"
+                    switch(texto){
+                        case 1: 
+                            color = "blue"
+                            break
+                        case 2: 
+                            color = "green"
+                            break
+                        case 3: 
+                            color = "orange"
+                            break
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                            color = "purple"
+                            break
+                        case "M":
+                            color = "red"
+                            break
+                        default:
+                            color = "white"
+                    }
+                    if ( texto == undefined ) texto = "&nbsp;"
+                    document.write("<td style='border: 2px solid; width: 30px; background-color: "+color+"'>"+texto+"</td>")
+                }
+                document.write("</tr>")
+            }
+            document.write("</table>")
+        }
+        
+        colocarMinas(tablero)
+        ponerNumeros(tablero)
+        dibujarTablero(tablero)
+    </script>
+</body>
+</html>

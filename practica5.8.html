@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let texto = prompt("Escriba 2 palabras separadas por un espacio: ")
+        let array = texto.split(" ")
+        let palabra1 = array[0].toLowerCase()
+        let palabra2 = array[1].toLowerCase()
+
+        //Convertir cada palabra a un array con cada letra en una casilla del array, luego ordenar alfabeticamente el array, luego volver a convertir esos arrays en string, y por ultimo compararlos a ver si son iguales
+        let anagrama1 = palabra1.split("").sort().join("")
+        let anagrama2 = palabra2.split("").sort().join("")
+
+        if (anagrama1 == anagrama2){
+            alert("SON ANAGRAMAS")
+        } else {
+            alert("NO LO SON")
+        }
+    </script>
+</body>
+</html>

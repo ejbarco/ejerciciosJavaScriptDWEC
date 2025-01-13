@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dia = parseInt(prompt("Dia de tu cumpleaños: "))
+        let mes = parseInt(prompt("Mes de tu cumpleaños: "))-1
+        let hoy = new Date()  //en este objeto date tengo la fecha y hora actual
+        
+        //año actual
+        let anioActual = hoy.getFullYear()
+
+        let cumple = new Date(anioActual,mes,dia)
+        
+
+        //Compruebo si la fecha de ese cumpleaños ya ha pasado o no ha llegado todavía
+        if ( cumple.getTime() < hoy.getTime() ){
+            // Ya ha pasado el cumpleaños, por lo tanto el proximo cumpleaños será el del proximo año. Y por tanto a la fecha del cumpleaños le voy a sumar 1 al año
+            cumple.setFullYear(cumple.getFullYear()+1)
+        } 
+        var dias = (cumple.getTime()-hoy.getTime())
+        dias = dias / 1000 / 60 / 60 / 24
+        dias = Math.ceil(dias)         
+        alert("Faltan "+dias+" dias para tu cumpleaños")
+
+
+    </script>
+</body>
+</html>

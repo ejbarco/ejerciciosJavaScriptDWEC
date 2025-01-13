@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            transition: background-color 3s ease ;
+        }
+    </style>
+</head>
+
+<body  id="cuerpo">
+    <h1 id="titulo">HOLA</h1>
+    <input type="text" name="" id="texto1">
+    <button onclick="cambiarTexto()">Cambiar texto</button>
+    
+    <span onmouseover="cambiarColor('yellow')">Amarillo</span>
+    <span onmouseover="cambiarColor('green')">Verde</span>
+    <span onmouseover="cambiarColor('red')">Rojo</span>
+
+    <script>
+
+        function cambiarTexto(){
+            let texto1 = document.getElementById("texto1").value
+            document.getElementById("titulo").textContent = texto1
+            console.log(document.getElementById("texto1").nodeType)
+        }
+
+        function cambiarColor(color){
+            document.getElementById("cuerpo").style.backgroundColor = color
+        }
+
+    </script>
+
+</body>
+</html>

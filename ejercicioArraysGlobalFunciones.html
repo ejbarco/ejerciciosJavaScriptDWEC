@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let array1 = ["La Coruña","Lugo","Pontevedra","Orense"]
+        let array2 = new Array("Guipuzkoa","Vizcaya","Alava")
+
+        function Menu(){
+            return parseInt(prompt("MENU DE OPCIONES PARA EL ARRAY\n 1 - Ver el array1 \n 2 - Eliminar elemento del array1 \n 3 - Tamaño del Array \n 4 - Insertar al final del array \n 5 - Insertar al principio del array \n 6 - Quitar último elemento del array \n 7 - Quitar primer elemento del array \n 8 - Mezclar array1 y array2 y ver el resultado \n 9 - Sustituir elemento de Array1"))
+        }
+
+        function MostrarArray(){
+            let texto = "";
+            for (let i in array1){
+                texto += i+" -> "+array1[i]+"\n";
+            }
+            alert(texto); 
+        }
+
+        function EliminarElemento(){
+            let elimi = parseInt(prompt(array1+"\nIndique el elemento a eliminar (número)"))
+            delete array1[elimi];
+            alert("Elemento eliminado: \n"+array1);
+        }
+
+        function InsertalAlFinal(){
+            var nuevo = prompt("Nuevo elemento al final del array: ");
+            array1.push(nuevo);
+            alert(array1);
+        }
+
+        function InsertarAlPrincipio(){
+            nuevo=prompt("Nuevo elemento al principio del array: ");
+            array1.unshift(nuevo);
+            alert(array1);
+        }
+
+        function BorrarUltimo(){
+            var borrar = confirm("Desea eliminar el último elemento del array");
+            if (borrar) array1.pop();
+            alert("Así queda el array1: \n"+array1);
+        }
+
+        function BorrarPrincipio(){
+            borrar = confirm("Desea eliminar el primer elemento del array");
+            if (borrar) array1.shift();
+            alert("Así queda el array1: \n"+array1);
+        }
+
+        function SustituirElemento(){
+            var susti = parseInt(prompt(array1+"\n ¿Qué elemento quieres sustituir (numero)?"));
+            var cambiar = confirm("Estas seguro que quieres sustituir el elemento "+array1[susti]+"?");
+            if (cambiar) {
+                nuevo = prompt("Nuevo valor: ");
+                array1.splice(susti,1,nuevo);
+                alert(array1);
+            }
+        }
+
+        while (true) {
+            let opcion = Menu();
+
+            switch (opcion) {
+                case 1:
+                    MostrarArray();
+                    break;
+                case 2:                
+                    EliminarElemento();
+                    break;            
+                case 3: 
+                    alert("El tamaño del array es: "+array1.length+" elementos");
+                    break;
+                case 4: 
+                    InsertalAlFinal();
+                    break;
+                case 5: 
+                    InsertarAlPrincipio();
+                    break;
+                case 6: 
+                    BorrarUltimo();
+                    break;
+                case 7: 
+                    BorrarPrincipio();                    
+                    break;
+                case 8:
+                    var array3 = array1.concat(array2);
+                    alert(array3);
+                    break;
+                case 9:
+                    SustituirElemento();                    
+                    break;
+                default: 
+                    alert("OPCION INCORRECTA")
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

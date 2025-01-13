@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let texto = prompt("Escribe un texto: ")
+        let palindromo = true
+        let longitud = texto.length-1;
+        //Voy recorriendo el string como un array y comparo la primera letra con la ultima, la segunda con la penultima, y así sucesivamente, hasta que encuentre 2 letras que no coincidan. En ese caso el texto NO SERÁ PALINDROMO
+
+        /*
+        for( let i=0 ; i < parseInt(longitud/2) ; i++ ){
+            if( texto[i].toLowerCase() != texto[longitud-i].toLowerCase() ) {
+                palindromo = false
+                break;
+            }
+        }
+
+        if (palindromo == true){
+            document.write("SI "+texto+" ES PALINDROMO");
+        } else {
+            document.write(" NO PALINDROMO");
+        }
+        */
+
+        //convertir el string en ARRAY
+        //let array1 = texto.split("");
+
+        //dar la vuelta al array1
+        //array1.reverse();
+
+        //volver a convertir ese array en un string
+        //let texto2 = array1.join("");
+
+        texto2 = texto.split("").reverse().join("");
+
+        if(texto == texto2){
+            alert("PALINDROMO")
+        } else {
+            alert("NO PALINDROMO")
+        }
+
+    </script>
+</body>
+</html>

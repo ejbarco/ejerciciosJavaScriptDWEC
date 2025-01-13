@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let array1 = ["La Coruña","Lugo","Pontevedra","Orense"]
+        let array2 = new Array("Guipuzkoa","Vizcaya","Alava")
+
+        while (true) {
+            let opcion = parseInt(prompt("MENU DE OPCIONES PARA EL ARRAY\n 1 - Ver el array1 \n 2 - Eliminar elemento del array1 \n 3 - Tamaño del Array \n 4 - Insertar al final del array \n 5 - Insertar al principio del array \n 6 - Quitar último elemento del array \n 7 - Quitar primer elemento del array \n 8 - Mezclar array1 y array2 y ver el resultado \n 9 - Sustituir elemento de Array1"))
+
+            switch (opcion) {
+                case 1:
+                    let texto = "";
+                    for (let i in array1){
+                        texto += i+" -> "+array1[i]+"\n";
+                    }
+                    alert(texto); 
+                    break;
+                case 2:                
+                    let elimi = parseInt(prompt(array1+"\nIndique el elemento a eliminar (número)"))
+                    delete array1[elimi];
+                    alert("Elemento eliminado: \n"+array1);
+                    break;            
+                case 3: 
+                    alert("El tamaño del array es: "+array1.length+" elementos");
+                    break;
+                case 4: 
+                    var nuevo = prompt("Nuevo elemento al final del array: ");
+                    array1.push(nuevo);
+                    alert(array1);
+                    break;
+                case 5: 
+                    nuevo=prompt("Nuevo elemento al principio del array: ");
+                    array1.unshift(nuevo);
+                    alert(array1);
+                    break;
+                case 6: 
+                    var borrar = confirm("Desea eliminar el último elemento del array");
+                    if (borrar) array1.pop();
+                    alert("Así queda el array1: \n"+array1);
+                    break;
+                case 7: 
+                    borrar = confirm("Desea eliminar el primer elemento del array");
+                    if (borrar) array1.shift();
+                    alert("Así queda el array1: \n"+array1);
+                    break;
+                case 8:
+                    var array3 = array1.concat(array2);
+                    alert(array3);
+                    break;
+                case 9:
+                    var susti = parseInt(prompt(array1+"\n ¿Qué elemento quieres sustituir (numero)?"));
+                    var cambiar = confirm("Estas seguro que quieres sustituir el elemento "+array1[susti]+"?");
+                    if (cambiar) {
+                        nuevo = prompt("Nuevo valor: ");
+                        array1.splice(susti,1,nuevo);
+                        alert(array1);
+                    }
+                    break;
+                default: 
+                    alert("OPCION INCORRECTA")
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
