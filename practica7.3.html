@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function borrarCookie(){
+            let fecha = new Date(0)  //establecido al 1 de enero de 1970
+            let array1 = document.cookie.split("; ")
+
+            //recorro cada una de las cookies y las "caduco"
+            for( let cookie of array1 ){
+                let [clave,valor] = cookie.split("=")
+                document.cookie=`${clave}= ; expires=${fecha.toUTCString()}`
+            }            
+        }
+
+        if(confirm("Acepta las cookies")){
+            //preparo objetos Date para calcular la caducidad de la cookie
+            let hoy = new Date()
+            let msAhora = hoy.getTime()
+            msAhora += 365*24*60*60*1000
+            let caducidad = new Date(msAhora)
+        
+            //Aumentar el numero de visitas
+            if( document.cookie.includes("visitas=") ){
+                //existe la cookie visitas
+                let array1 = document.cookie.split("; ")
+                
+                for( let cookie of array1 ){
+                    let [clave,valor] = cookie.split("=")
+                    if (clave == "visitas"){
+                        let num = parseInt(valor)
+                        num++
+                        alert("Visitas "+num)                        
+                        document.cookie = "visitas="+num+"; expires="+caducidad.toUTCString();
+                    } 
+                }
+            } else {
+                //no está la cookie "visitas"
+                document.cookie = "visitas=1; expires="+caducidad.toUTCString();
+                alert(document.cookie)
+            }
+        } else {
+            //borrar las cookies
+            borrarCookie()
+        }
+    </script>
+</body>
+</html>

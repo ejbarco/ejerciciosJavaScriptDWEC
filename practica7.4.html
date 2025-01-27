@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="palabra"> <button onclick="buscarPalabra()">Buscar</button>
+    <p>El lunes es un dia que a la gente no le suele gustar mucho</p>
+    <p>Los martes son muy parecidos a los lunes</p>
+    <p>Los miercoles por la tarde suelen echar partidos de Champions</p>
+    <p>Los jueves me gustan bastante</p>
+    <p>Los viernes son el mejor dia</p>
+
+    <script>
+        //meter todos los parrafos en un array
+        var parrafos = document.getElementsByTagName('p')        
+
+        function buscarPalabra(){
+            //obtengo la palabra que hay que buscar en los parrafos
+            let palabra = document.getElementById("palabra").value
+            window.find(palabra)
+            //console.log(palabra)
+            /*
+            for( let p of parrafos ){
+               if( p.textContent.includes(palabra) ){
+                   //alert("La palabra buscada está en este parrafo: \n"+p.textContent)
+
+                }
+            }*/
+        }
+
+
+    </script>
+
+</body>
+</html>

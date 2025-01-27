@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="aniadirElemento()">Añadir Elemento</button>
+    <button onclick="insertarElemento()">Insertar Elemento</button>
+    <button onclick="sustituir()">Sustituir Elemento</button>
+    <button onclick="moverFinal()">Mover al final</button>
+    <div></div>
+    <script>
+        let miDiv = document.getElementsByTagName("div")[0]
+        let texto
+
+        function moverFinal(){
+            let posicion=parseInt(prompt("Indique el numero del elemento para mover al final: "))
+            let p = miDiv.children[posicion-1]
+            miDiv.removeChild(p)
+            miDiv.appendChild(p)
+        }
+
+        function sustituir(){
+            texto=prompt("Escriba una palabra: ")
+            let posicion=parseInt(prompt("Indique la posición a sustituir: "))
+            let parrafo = document.createElement("p")
+            parrafo.textContent = texto
+            let p = miDiv.children[posicion-1]
+            miDiv.replaceChild(parrafo,p)
+        }
+
+        function insertarElemento(){
+            texto=prompt("Escriba una palabra: ")
+            let posicion=parseInt(prompt("Indique la posición: "))
+            let parrafo = document.createElement("p")
+            parrafo.textContent = texto
+            let p = miDiv.children[posicion-1]
+            miDiv.insertBefore(parrafo,p)
+        }
+
+        function aniadirElemento(){
+            texto=prompt("Escriba una palabra: ")
+            let parrafo = document.createElement("p")
+            parrafo.textContent = texto
+            miDiv.appendChild(parrafo)            
+        }
+
+    </script>
+</body>
+</html>

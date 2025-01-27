@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="borrarCookie()">Borrar cookie</button>
+    <button onclick="ponerCookie()">Poner cookie</button>
+    <button onclick="alert(document.cookie)">Ver cookies</button>
+    <script>     
+    
+        function borrarCookie(){
+            let fecha = new Date(0)  //establecido al 1 de enero de 1970
+            let array1 = document.cookie.split("; ")
+
+            //recorro cada una de las cookies y las "caduco"
+            for( let cookie of array1 ){
+                let [clave,valor] = cookie.split("=")
+                document.cookie=`${clave}= ; expires=${fecha.toUTCString()}`
+            }            
+        }
+
+        //Estas lineas son para poner una caducidad de 24 horas a la cookie
+        let hoy = new Date();
+        let msAhora = hoy.getTime()  //obtengo la fecha actual en ms
+        msAhora += 24*60*60*1000    //le sumo los ms hasta mañana
+        let caducidad = new Date(msAhora)  //establezco la hora para mañana dentro de 24 horas
+        
+        function ponerCookie(){
+            document.cookie="usuario=Emilio"
+            document.cookie="ap1=Barco"
+            document.cookie="ap2=García"
+            document.cookie=`expires=${caducidad.toUTCString()}`
+            alert(document.cookie)
+        }
+
+
+ 
+        let array1 = document.cookie.split("; ")
+        for( let cookie of array1 ){
+            let [clave,valor] = cookie.split("=")
+            console.log("Cookie: "+clave+" , Valor: "+valor)
+        }
+        
+    </script>
+</body>
+</html>

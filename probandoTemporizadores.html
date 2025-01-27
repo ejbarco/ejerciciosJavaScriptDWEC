@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <script>
+
+        let segundos = parseInt(prompt("Cuantos segundos quieres: "))
+        let titulo = document.createElement("h1")
+        titulo.textContent = segundos
+        let miBody = document.getElementsByTagName("body")[0]
+        miBody.appendChild(titulo)
+
+        while( segundos > 0 ){
+            setTimeout(()=>{titulo.textContent=segundos},segundos*1000)
+            segundos--
+        }
+
+    </script>
+</body>
+</html>

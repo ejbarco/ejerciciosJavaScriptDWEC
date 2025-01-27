@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let miPagina = document.getElementsByTagName("body")[0]
+        let tabla = document.createElement("table")
+        tabla.style.border="2px solid black"
+        tabla.style.borderCollapse="collapse"
+        miPagina.appendChild(tabla)
+
+        let columnas = prompt("Columnas de la tabla: ")
+        let filas = prompt("Filas de la tabla: ")
+
+        let contador = 0
+
+        for( let i=0 ; i < filas ; i++){
+            //en cada iteración de este bucle creo una fila nueva
+            let fila = document.createElement("tr")
+            tabla.appendChild(fila)
+            for( let j=0 ; j < columnas ; j++ ){
+                let celda = document.createElement("td")
+                celda.style.border = "2px solid black"
+                celda.style.width = "20px"
+                celda.textContent = contador++
+                fila.appendChild(celda)
+            }
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="contador"></h1>
+    <script>
+        let segundos = parseInt(prompt("Indica los segundos: "))
+        let conta = document.getElementById("contador")
+        conta.textContent = segundos
+
+        let idIntervalo = setInterval(() => {
+            conta.textContent = segundos--
+            if (segundos<0){
+                clearInterval(idIntervalo)
+            }            
+        }, 1000);
+    </script>
+</body>
+</html>

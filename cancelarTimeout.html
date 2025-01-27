@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="ponerAlarma()">Poner Alarma</button>
+    <button onclick="cancelarAlarma()">Cancelar Alarma</button>
+    <script>
+        var idAlarma=""
+
+        function ponerAlarma(){
+            let segundos = parseInt(prompt("Numero de segundos: "))
+            idAlarma = setTimeout(()=>{alert("Tiempo Concluido "+idAlarma)},segundos*1000)
+        }
+
+        function cancelarAlarma(){
+            if (idAlarma!=""){
+                clearTimeout(idAlarma)
+                alert("Alarma Cancelada: "+idAlarma)                
+            } else {
+                alert("No hay ninguna alarma")
+            }
+            idAlarma=""
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SALTAR A AS.COM</h1>
+    <h2 id="cuenta"></h2>
+    <script>
+        let segundos = 5
+        setTimeout( ()=>{ location.href="https://www.as.com" } ,segundos*1000)
+        let contador = document.getElementById("cuenta")       
+        setInterval( ()=>{contador.textContent = segundos--} ,1000)
+    </script>
+</body>
+</html>

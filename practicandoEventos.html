@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>
+            <button>
+                Hazme clic
+            </button>
+        </p>
+    </div>
+
+    <script>
+        function mostrarMensaje(texto){
+            console.log(texto)
+        }
+
+        let capa = document.querySelector("div")
+        let p = document.querySelector("p")
+        let boton = document.querySelector("button")
+        capa.addEventListener("click",()=>{mostrarMensaje("Estoy en el DIV")},true)
+        p.addEventListener("click",()=>{mostrarMensaje("Estoy en el parrafo")},true)
+        boton.addEventListener("click",()=>{mostrarMensaje("Estoy en el boton")},true)
+
+    </script>
+</body>
+</html>
