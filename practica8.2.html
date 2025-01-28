@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pulse Alt+F12 para poner una imagen de fondo</h1>
+
+    <script>
+        document.body.addEventListener(
+            "keydown",
+            (ev)=>{
+                if( ev.shiftKey && ev.key == "F12" ){
+                    document.body.style.backgroundImage = "url('https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2022/08/7-mejores-coches-espanoles-jamas-fabricados-historia-2774201.jpg?tf=3840x')"
+                    document.body.style.backgroundSize = "cover"
+                }
+            }
+        )
+    </script>
+</body>
+</html>

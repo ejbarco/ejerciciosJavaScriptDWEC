@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>clic aqui</h1>
+
+    <script>
+        document.addEventListener(
+            "mousedown",
+            (ev)=>{
+                let cartel = document.querySelector("h1")
+                switch (ev.button){
+                    case 0:
+                        cartel.textContent = "Izquierdo"
+                        break
+                    case 1:
+                        cartel.textContent = "Centro"
+                        break
+                    case 2:
+                        cartel.textContent = "Derecho"
+                        break
+                    case 3:
+                        cartel.textContent = "Av Pag"
+                        break
+                    case 4:
+                        cartel.textContent = "Re Pag"
+                        break
+                    default:
+                        cartel.textContent = "Desconocida"
+                }
+            }
+        )
+    </script>
+</body>
+</html>
