@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #capa{
+            position: fixed;
+            width: 50%;
+            height: 50%;
+            left: 25%;
+            top: 25%;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="capa"></div>
+    <script>
+        let capa = document.getElementById("capa")
+        capa.addEventListener(
+            "mouseenter",
+            ()=>{
+                capa.style.backgroundColor = "green"
+            }
+        )
+        capa.addEventListener(
+            "mousedown",
+            (ev)=>{
+                ev.preventDefault()
+                if( ev.button == 0 ){
+                    capa.style.backgroundColor = "red"
+                }
+                if( ev.button == 2 ){
+                    capa.style.backgroundColor = "blue"
+                }
+            }
+        )
+        capa.addEventListener(
+            "mouseup",
+            (ev)=>{
+                if( ev.button == 0 || ev.button == 2 ){
+                    capa.style.backgroundColor = "green"
+                } 
+            }
+        )
+        capa.addEventListener(
+            "contextmenu",
+            (ev)=> {
+                ev.preventDefault()
+            }
+        )
+        capa.addEventListener(
+            "mouseleave",
+            ()=>{
+                capa.style.backgroundColor = "" 
+            }
+        )
+
+    </script>
+</body>
+</html>

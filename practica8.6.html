@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="mensaje">Cargando ...</h1>
+    <img src="https://img.freepik.com/foto-gratis/lago-montanas_1204-502.jpg?t=st=1739207405~exp=1739211005~hmac=f157fa9c21e9cf988c41ad122af5f98b9a5f717df87638fabc83a7b08f234418&w=1380" alt="">
+    <br>
+    <img src="https://img.freepik.com/fotos-premium/hoja-rocio-luz-sol_1059181-7027.jpg?w=1380" alt="">
+    <br>
+    <img src="https://img.freepik.com/foto-gratis/hojas-otono-exhiben-colores-vibrantes-belleza-naturaleza-generada-ia_188544-35671.jpg?t=st=1739207907~exp=1739211507~hmac=68fe903091fc6a05a0d13610f96e53413e939ad7b075941f607663ca29284885&w=1380" alt="">
+    <br>
+    <img src="https://img.freepik.com/foto-gratis/fotografia-bola-lente-creativa-hermosa-grua-natacion-mar_181624-2655.jpg?t=st=1739207940~exp=1739211540~hmac=c558bd8ec7b5dda72c5c07239bf35b31639a7479f16c97a9e9dc414fa447c444&w=1380" alt="">
+    <br>
+    <img src="https://img.freepik.com/fotos-premium/primer-plano-cara-loro-fondo-negro_876193-1.jpg?w=1380" alt="">
+
+    <script>
+        var mensaje = document.getElementById("mensaje")
+        /*
+        window.addEventListener(
+            "progress",
+            ()=>{                
+                mensaje.textContent = "CARGANDO ..."
+                console.log("Cargando imagenes")  
+            }
+        ) */
+            
+        window.addEventListener(
+            "load",
+            ()=>{
+                mensaje.textContent = ""
+            }
+        )
+            
+    </script>
+</body>
+</html>

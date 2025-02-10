@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>
+        Saludar
+    </button>
+
+    <script>
+        let boton1 = document.querySelector("button")
+        boton1.addEventListener(
+            "click",
+            ()=>{alert("Hola que tal, has pulsado el botón")}
+        )
+
+        setTimeout(
+            ()=>{
+                let evento = new Event("click")
+                boton1.dispatchEvent(evento)
+            }
+            ,5000)
+    </script>
+</body>
+</html>
