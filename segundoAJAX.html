@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="nif"></p>
+    <script>
+        var capaNIF = document.getElementById("nif")
+        fetch("datos.txt")
+            .then( (respuesta)=> {
+                if( respuesta.ok ){
+                    return respuesta.json()
+                } else {
+                    throw new Error("Los datos no llegaron bien");
+                }
+            })
+            .then((lista) => {
+                capaNIF.textContent = lista[0].numero
+            })
+            .catch( (error)=>{
+                capaNIF.textContent = "ERROR: "+error
+            })
+    </script>
+
+</body>
+</html>

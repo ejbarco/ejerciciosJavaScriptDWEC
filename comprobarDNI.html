@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="numero" id="numero" maxlength="8" >
+        <input type="text" name="letra" id="letra" maxlength="1">
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Borrar">
+    </form>
+
+    <script>
+        let numero = document.getElementById("numero")
+        numero.select()
+        let letras = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E']
+       
+        let formulario = document.forms[0]
+
+        numero.addEventListener(
+            "blur",
+            (ev)=>{
+                let num = parseInt(numero.value)
+                let resto = num % 23
+                let letra = letras[resto]
+                document.forms[0].letra.value = letra
+            }
+        )
+
+        formulario.addEventListener(
+            "submit",
+            (ev)=>{
+                //cojo el número que ha escrito el usuario
+                let num = parseInt(numero.value)
+
+                //divido el numero introducido entre 23
+                let resto = num % 23
+                let letra = letras[resto]
+
+                let letraUsuario = ""+document.getElementById("letra").value
+
+                if( letra != letraUsuario.toUpperCase() ){
+                    ev.preventDefault()
+                    alert("DNI Incorrecto")
+                }
+            }
+        )
+
+        formulario.addEventListener(
+            "reset",
+            (ev)=>{
+                if(!confirm("Estas seguro de borrar los datos?")){
+                    ev.preventDefault()
+                }
+            }
+        )
+
+    </script>
+</body>
+</html>

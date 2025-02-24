@@ -1,0 +1,9 @@
+[
+    {"nombre":"Alvaro" , "apellidos":"Diaz"},
+    {"nombre":"Aitor" , "apellidos":"García"},
+    {"nombre":"Carlos" , "apellidos":"Rubio"},
+    {"nombre":"Javier" , "apellidos":"Olivares"},
+    {"nombre":"Pablo" , "apellidos":"Manzaneque"},
+    {"nombre":"Darío" , "apellidos":"Heras"},
+    {"nombre":"Luis" , "apellidos":"Jimenez"}
+]

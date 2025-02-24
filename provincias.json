@@ -1,0 +1,10 @@
+[
+    {"comunidad":"Asturias", "provincias":["Oviedo"]},
+    {"comunidad":"Galicia", "provincias":["Lugo","Pontevedra","La Coruña","Pontevedra"]},
+    {"comunidad":"Pais Vasco", "provincias":["Alava","Vizcaya","Guipuzcoa"]},
+    {"comunidad":"Aragón", "provincias":["Huesca","Teruel","Zaragoza"]},
+    {"comunidad":"Comunidad Valenciana", "provincias":["Alicante","Castellón","Valencia"]},
+    {"comunidad":"Castilla León", "provincias":["Ávila","Segovia","Soria","Salamanca","Valladolid","Palencia","León","Zamora"]},
+    {"comunidad":"Castilla la Mancha", "provincias":["Albacete","Ciudad Real","Cuenca","Guadalajara","Toledo"]},
+    {"comunidad":"Andalucía", "provincias":["Almería","Jaén","Córdoba","Málaga","Sevilla","Huelva","Cádiz","Granada"]}
+]

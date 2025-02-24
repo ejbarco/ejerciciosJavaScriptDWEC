@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="lista"></select>
+    <ul id="prov"></ul>
+    <script>
+        let lista = document.getElementById("lista")
+        let prov = document.getElementById("prov")
+        let arrayComunidades
+        fetch("provincias.json")
+            .then((respuesta)=>{
+                return respuesta.json()
+            })
+            .then( (comunidades)=>{
+                arrayComunidades = comunidades
+                for( let comu of comunidades ){
+                    let opcion = document.createElement("option")
+                    opcion.textContent = comu.comunidad
+                    opcion.setAttribute("value",comu.comunidad)
+                    lista.appendChild(opcion)
+                }
+            })
+            .catch( error => alert("ERROR AL CARGAR LOS DATOS"))
+
+        lista.addEventListener(
+            "change",
+            (event)=>{
+                //si la lista ya tuviera hijos los borro
+                prov.innerHTML = ""
+                for( let com1 of arrayComunidades ){
+                    if( com1.comunidad == lista.value ){
+                        for( let p1 of com1.provincias ){
+                            let elemento = document.createElement("li")
+                            elemento.textContent = p1
+                            prov.appendChild(elemento)
+                        }
+                    }
+                }
+            }
+        )
+        
+    </script>
+</body>
+</html>
